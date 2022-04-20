@@ -19,5 +19,18 @@ You will need the following software:
 
 The following libraries were used on this project.
 
-1. Lombok.
-2. MapStruct.
+1. Lombok annotations used to avoid generating setters and getters as well as logging.
+2. MapStruct this library makes it easy to copy java bean properties.
+
+##Running the application
+
+1. Start as a regular SpringBoot application
+2. Once is running, test the end point URi: curl -get localhost:8080/artists/27
+3. Artist id has to be a positive number
+
+##Design Considerations
+1. Thought about using in memory H2 database to read json and store in tables, I may still do this in a different branch. For now I am keeping it very simple.
+2. Result dto eventsList could benefit from HATEOS so link to an Event URI are available  
+3. Artist id has to be a positive number if it does not exist a ArtistNotFoundException is returned with the appropiate http code
+4. Added functionality could be its own microservice
+    

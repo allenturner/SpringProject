@@ -10,6 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerWebInputException;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 
@@ -24,7 +26,7 @@ public class ArtistController {
     }
 
     @GetMapping("/artists/{id}")
-    ArtistDto getArtist(@PathVariable("id") @Positive Long id) {
+    ArtistDto getArtist(@PathVariable("id") @NotNull @Positive Long id) {
         return artistService.getArtistById(id);
     }
 
